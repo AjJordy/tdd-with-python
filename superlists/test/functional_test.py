@@ -8,4 +8,4 @@ opts.binary_location = "/snap/firefox/current/usr/lib/firefox/firefox"
 browser = webdriver.Firefox(options=opts)
 browser.get('http://localhost:8000')
 
-assert 'Django' in browser.title
+assert 'The install worked successfully! Congratulations!' in browser.title
