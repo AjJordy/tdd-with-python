@@ -46,10 +46,13 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element(By.ID, 'id_list_table')
         rows = table.find_elements(By.TAG_NAME, 'tr')
-        self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows),
-            "New to-do item did not appear in table"
-        )
+        # self.assertTrue(
+        #     any(row.text == '1: Buy peacock feathers' for row in rows),
+        #     f"New to-do item did not appear in table. Contents were:\n{table.text}"
+        # )
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        self.assertIn('2: Use peacock feathers to make a fly', [row.text for row in rows])
+
 
         # Ainda continua havendo uma caixa de texto convidando-a a acrescentar outro
         # item. Ela insere "Use peacock feathers to make a fly" (Usar penas de pavão
