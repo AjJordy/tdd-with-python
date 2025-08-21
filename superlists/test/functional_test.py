@@ -1,5 +1,6 @@
+
 import time
-import unittest
+from unittest import TestCase, main
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(TestCase):
     def setUp(self):
         opts = Options()
         # Snap path 
@@ -74,5 +75,6 @@ class NewVisitorTest(unittest.TestCase):
         # Satisfeita, ela volta a dormir
 
 
+
 if __name__ == "__main__":
-    unittest.main(warnings='ignore')
+    main(warnings='ignore')
