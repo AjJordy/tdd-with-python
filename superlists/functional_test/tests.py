@@ -1,14 +1,17 @@
 
 import time
-from unittest import TestCase, main
 
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 
+# from unittest import main, TestCase
 
-class NewVisitorTest(TestCase):
+
+
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         opts = Options()
         # Snap path 
@@ -27,7 +30,7 @@ class NewVisitorTest(TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Edith ouviu falar de uma nova aplicação online interessante
         # para lista de tarefas. Ela decide verificar sua homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url) # ('http://localhost:8000')
 
         # Ela percebe que o título da página e o cabeçalho mencionam
         # listas de tarefas (to-do)
@@ -76,5 +79,5 @@ class NewVisitorTest(TestCase):
 
 
 
-if __name__ == "__main__":
-    main(warnings='ignore')
+# if __name__ == "__main__":
+#     main(warnings='ignore')
